@@ -24,7 +24,7 @@
    
    1. Pins 0 and 1 did not work as RX, TX.
    2. Pins 2 and 3 worked as RX, TX. Not only did they work, uploading sketches also worked, as opposed to pins 0 and 1, where the wires had to be
-   disconnected on every compile and upload. IMPORTANT: Connect Arduino RX to Bluetooth adapter TX and Arduino TX to Bluetooth adapter RX.fs
+   disconnected on every compile and upload. IMPORTANT: Connect Arduino RX to Bluetooth adapter TX and Arduino TX to Bluetooth adapter RX.
    3. A delay was required after every serial write to the BT0417C,
    4. Default baud rate for the BT0417C is 9600.
    5. Response to command AT+NAMEyourname is OKsetname, not OKyourname as per datasheet.
