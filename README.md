@@ -12,10 +12,9 @@ To configure the module, wire the breakout board to an Anduino Uno, load the ske
 
 ## Wiring
 
-The BT0417C is a breakout board for the 
 ![BT0417C Wiring](images/BT0417C-wiring.png)
 
-Wire ground (green) and +5V (red) from your breadboard to the UNO (the actual labels will be written at the back of the BT0417C). Once the module is powered up, the 
+Wire ground (green) and +5V (red) from your breadboard to the UNO (the actual labels will be written at the back of the BT0417C). Once the module is powered up, a blinking LED indicates that Bluetooth radio is functional but device is not paired. Once it is paired, the LED will stay on and stop blinking.  
 
 ## Configuring
 
