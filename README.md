@@ -54,7 +54,7 @@ This is the baud rate your BT0417C device will use to commmunicate with other de
   mySerial.write("AT+BAUD7");
 ```
 
-and make a note of the baud rate code number, in this case **7**, which corresponds to baud rate 57600. For a full list see the [AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.
+and make a note of the baud rate code number, in this case **7**, which corresponds to baud rate 57600. For a full list see the [AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf).
 
 **Do not change the baud rate code number for the time being**.
 
@@ -104,14 +104,14 @@ Suppose you successfully *found* the baud rate, by setting baud rate to 9600 in 
 
 # Testing
 
-*TODO*
+**TODO**  
 Once paired and connected, open up the Serial Monitor. Messages sent from the Bluetooth monitoring app of your choice (required) should turn up at Serial Monitor and vice-versa.
 
 # Datasheets
 
-[CSR BC417 datasheet](https://cdn.sparkfun.com/datasheets/Wireless/Bluetooth/CSR-BC417-datasheet.pdf) at SparkFun.
-[Breakout board datasheet] (http://mdfly.net/Download/Wireless/BT0417C_datasheet.pdf) at MDFLY.
-[AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.
+[CSR BC417 datasheet](https://cdn.sparkfun.com/datasheets/Wireless/Bluetooth/CSR-BC417-datasheet.pdf) at SparkFun.  
+[Breakout board datasheet] (http://mdfly.net/Download/Wireless/BT0417C_datasheet.pdf) at MDFLY.  
+[AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.  
 
 # Pitfalls
 
