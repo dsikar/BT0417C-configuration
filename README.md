@@ -100,7 +100,7 @@ to match baud rate code in
   mySerial.write("AT+BAUD7");
 ```
 
-Suppose you successfully *found* the baud rate, by setting baud rate to 9600 in the sketch and code 4 in the module, uploading the sketch, opening a Serial Monitor and getting a reply as "REPLY: OK9600". Now you are in control and can change the baud rate if you need to, remembering that if you do *change* the baud rate, change the AT command first ("AT+BAUD7"), upload the sketch, then change thesoftware serial baud rate to match the new one set in the BT0417C and upload sketch again to resume communication between UNO and BT0417C.
+Suppose you successfully found the baud rate, by setting baud rate to 9600 in the sketch and code 4 in the module, uploading the sketch, opening a Serial Monitor and getting a reply as "REPLY: OK9600". Now you are in control and can change the baud rate if you need to, remembering that if you do change the baud rate, change the AT command first ("AT+BAUD7"), upload the sketch, then change the software serial baud rate to match the new one set in the BT0417C and upload sketch again to resume communication between UNO and BT0417C.
 
 # Testing
 
