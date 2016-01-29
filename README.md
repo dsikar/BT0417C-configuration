@@ -3,29 +3,113 @@ BT0417C Configuration
 
 # What is the BT0417C?
 
-The BT0417C is a Wireless Bluetooth TTL Transceiver Module on one end and RS232 communication at the other. That means you can use it to add Bluetooth to any RS232 enabled device such as a microcontroller.  
+The BT0417C is a Wireless Bluetooth TTL Transceiver Module on one end and RS232 communication at the other. That means you can use it to add Bluetooth to any RS232 enabled device such as a microcontroller. 
 At the heart of this breakout board, manufactured by mdfly.com is the CSR BC417 chip, once manufactured by CSR (Cambridge Silicon Radio Limited now Qualcomm).
 
 # Configuration
 
-To configure the module, first wire the breakout board to an Anduino Uno, load the sketch and change the parameters to suit your application.
+Configuring the BT0417C is done in four steps
+
+1. Wiring the UNO to the BT0417C
+2. Editing parameters in the sketch
+3. Uploading the sketch and checking Serial Monitor
+4. Finding and changing the factory set Baud Rate
 
 ## Wiring
 
 ![BT0417C Wiring](images/BT0417C-wiring.png)
 
-Wire ground (green) and +5V (red) from your breadboard to the UNO (the actual labels are written at the back of the BT0417C), then TX to 2 and RX to 3. Once the module is powered up, a blinking LED indicates that Bluetooth radio is functional but device is not paired. Once it is paired, the LED will stay on and stop blinking. Note, the UNO must also be connected. 
+Wire ground (green) and +5V (red) from your breadboard to the UNO (the actual labels are written at the back of the BT0417C), then TX to Pin 2 and RX to Pin 3.  
+Once the module is powered up via the UNO, a blinking LED on the BT0417C indicates that bluetooth radio is functional and device is not paired. When it is paired, the LED will stay on and stop blinking.
 
-## Configuring
+## Editing parameters in the sketch
 
-Load the sketch into your IDE. In setup(), edit four-digit PIN and name (57600 baud rate works ok with Android) then compile and upload.
+Once you open the sketch, the parameters we need to look out for are Name, PIN and Baud Rate. Then change them to suit your application.
 
-## Testing
+### Name
 
-Once paired and connected, messages sent from Android (Bluetooth monitoring app of your choice required) should turn up at Serial Monitor and vice-versa.
+This is the name your BT0417C will show when paired with another device. In setup(), look for the line
 
-## Datasheets
+```   
+mySerial.write("AT+NAMEmed_hum_v0.1"); 
+```
 
-TODO  
-CSR  
-MDFLY x2
+and edit the name, in this case *med_hum_v0.1*.
+
+### PIN
+
+This is the PIN your BT0417C will require to pair with another device. In setup(), look for the line
+
+``` 
+  mySerial.write("AT+PIN0123"); 
+```
+
+and edit the PIN, in this case *0123*.
+
+### Baud Rate
+
+This is the baud rate your BT0417C device will use to commmunicate with other devices. In setup(), look for the line
+
+``` 
+  mySerial.write("AT+BAUD7");
+```
+
+and make a note of the baud rate code number, in this case *7*, which corresponds to baud rate 57600. For a full list see the [AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.
+
+*Do not change the baud rate code number for the time being*.
+
+## Uploading the sketch and checking Serial Monitor
+
+Upload the sketch, open a Serial Monitor and you might see the message:
+
+``` 
+STARTING serial communication with BT0417C device...
+Sending command AT...
+REPLY: OK
+------
+Sending command AT+NAME...
+REPLY: OKsetname
+------
+Sending command AT+PIN...
+REPLY: OKsetPIN
+------
+Sending command AT+BAUD7 (57600)...
+REPLY: OK57600
+------
+```
+
+If you see the reply messages, it means your BT0417C factory set baud rate was indeed 57600. If you get no replies, see the next section.
+
+## Finding and changing the factory set Baud Rate
+
+In *setup()* a baud rate is set for the UNO to communicate with the BT0417C in line
+
+``` 
+  mySerial.begin(57600);
+```
+
+This must match what is already set in the module, which might not be the case. If the baud rate set for the UNO (in this example 57600) does not match the default factory set baud rate in the BT0417C, there will be no reply from the module showing up in the Serial Monitor. In this case, you have to go through the values, from 1 to 8 (corresponding to 1200 to 115200), always changing the software serial baud rate in 
+
+```
+  mySerial.begin(57600);
+```
+
+to match baud rate code in 
+
+```
+  mySerial.write("AT+BAUD7");
+```
+
+Suppose you successfully *found* the baud rate, by setting baud rate to 9600 in the sketch and code 4 in the module, uploading the sketch, opening a Serial Monitor and getting a reply as "REPLY: OK9600". Now you are in control and can change the baud rate if you need to, remembering that if you do *change* the baud rate, change the AT command first ("AT+BAUD7"), upload the sketch, then change thesoftware serial baud rate to match the new one set in the BT0417C and upload sketch again to resume communication between UNO and BT0417C.
+
+# Testing
+
+*TODO*
+Once paired and connected, open up the Serial Monitor. Messages sent from the Bluetooth monitoring app of your choice (required) should turn up at Serial Monitor and vice-versa.
+
+# Datasheets
+
+[CSR BC417 datasheet](https://cdn.sparkfun.com/datasheets/Wireless/Bluetooth/CSR-BC417-datasheet.pdf) at SparkFun.
+[Breakout board datasheet] (http://mdfly.net/Download/Wireless/BT0417C_datasheet.pdf) at MDFLY.
+[AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.
+

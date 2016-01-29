@@ -30,58 +30,6 @@ void read_serial() {
   Serial.write("\n------\n"); 
 }
 
-/*********************************
-  Set up device
-*********************************/
-
-void BT0417C_setup(String strDevName, String strPin, String strBaudRate) {
-
-  Serial.println("Sending command AT...");
-  Serial.print("REPLY: ");
-  mySerial.write("AT");
-  read_serial(); 
-  
-  Serial.println("Sending command AT+NAME...");
-  Serial.print("REPLY: ");  
-  String strParam = "AT+NAME" + strDevName;
-  char* buf = (char*) malloc(sizeof(char)*strParam.length()+1);
-  int iStrLen = strParam.length()+1;
-  mySerial.write(buf, iStrLen);
-  free(buf);
-  
-  read_serial(); 
-  Serial.println("Sending command AT+PIN...");
-  Serial.print("REPLY: ");
-  strParam = "AT+PIN" + strPin;
-  buf = (char*) malloc(sizeof(char)*strParam.length()+1);
-  iStrLen = strParam.length()+1;
-  mySerial.write(buf, iStrLen);
-  read_serial();
-  
-  Serial.println("Sending command AT+BAUD7 (57600)...");
-  Serial.print("REPLY: "); 
-  strParam = "AT+" + strBaudRate;
-  buf = (char*) malloc(sizeof(char)*strParam.length()+1);  
-  iStrLen = strParam.length()+1;
-  mySerial.write(buf, iStrLen);
-  
-  read_serial();  
-  
-}
-
-void setup()  
-{
-  // Open serial communications and wait for port to open:
-  // Serial.begin(57600);
-  // Default serial baud rate = 9600, optimal Android baud rate (according to Amarino documentation): 57600
-  Serial.begin(9600);
-  // set the data rate for the SoftwareSerial port
-  // This must match the current baud rate on the device
-  mySerial.begin(57600);
-  Serial.println("STARTING serial communication with BT0417C device...");
-  BT0417C_setup("med_hum_v0.1", "0123", "BAUD7");
-}
-
 void setup()  
 {
   // Set hardware serial baud rate
@@ -103,7 +51,7 @@ void setup()
   Serial.print("REPLY: ");
   mySerial.write("AT+PIN0123");
   read_serial();   
-  Serial.println("Sending command AT+BAUD7 (57600)..."); // 57600 Optimal Android Bluetooth baud rate - discuss
+  Serial.println("Sending command AT+BAUD7 (57600)..."); // 57600 Optimal Android Bluetooth baud rate
   Serial.print("REPLY: ");  
   mySerial.write("AT+BAUD7");
   read_serial();
