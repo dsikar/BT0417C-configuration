@@ -1,6 +1,8 @@
 BT0417C Configuration
 ==============
 
+This document describes how to configure the BT0417C module. Once it is configured, it may be used in other projects.
+
 # What is the BT0417C?
 
 The BT0417C is a Wireless Bluetooth TTL Transceiver Module on one end and RS232 communication at the other. That means you can use it to add Bluetooth to any RS232 enabled device such as a microcontroller. 
