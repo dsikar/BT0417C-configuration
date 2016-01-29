@@ -1,7 +1,7 @@
 BT0417C Configuration
 ==============
 
-This document describes how to configure the BT0417C module. Once it is configured, it may be used in other projects.
+This document describes how to configure the BT0417C module. Once configured, it may be used in other projects.
 
 # What is the BT0417C?
 
