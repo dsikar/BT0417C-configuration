@@ -34,7 +34,7 @@ This is the name your BT0417C will show when paired with another device. In setu
 mySerial.write("AT+NAMEmed_hum_v0.1"); 
 ```
 
-and edit the name, in this case *med_hum_v0.1*.
+and edit the name, in this case **med_hum_v0.1**.
 
 ### PIN
 
@@ -44,7 +44,7 @@ This is the PIN your BT0417C will require to pair with another device. In setup(
   mySerial.write("AT+PIN0123"); 
 ```
 
-and edit the PIN, in this case *0123*.
+and edit the PIN, in this case **0123**.
 
 ### Baud Rate
 
@@ -54,9 +54,9 @@ This is the baud rate your BT0417C device will use to commmunicate with other de
   mySerial.write("AT+BAUD7");
 ```
 
-and make a note of the baud rate code number, in this case *7*, which corresponds to baud rate 57600. For a full list see the [AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.
+and make a note of the baud rate code number, in this case **7**, which corresponds to baud rate 57600. For a full list see the [AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.
 
-*Do not change the baud rate code number for the time being*.
+**Do not change the baud rate code number for the time being**.
 
 ## Uploading the sketch and checking Serial Monitor
 
@@ -82,7 +82,7 @@ If you see the reply messages, it means your BT0417C factory set baud rate was i
 
 ## Finding and changing the factory set Baud Rate
 
-In *setup()* a baud rate is set for the UNO to communicate with the BT0417C in line
+In **setup()** a baud rate is set for the UNO to communicate with the BT0417C in line
 
 ``` 
   mySerial.begin(57600);
@@ -113,3 +113,6 @@ Once paired and connected, open up the Serial Monitor. Messages sent from the Bl
 [Breakout board datasheet] (http://mdfly.net/Download/Wireless/BT0417C_datasheet.pdf) at MDFLY.
 [AT Command Set] (http://mdfly.net/Download/Wireless/BT0417C_ATcommand.pdf) at MDFLY.
 
+# Pitfalls
+
+The BT0417C, when scanning for other devices, drains current in the order of several hundred mA, peaking at nearly 1A according to my measurements. If you have other devices attached to your UNO, the USB connection might not be able to supply enough power to your prototype. If the prototype runs low on power all hell breaks loose. If you do notice erratic behaviour, power your UNO externally, making sure the power rating of your power supply matches what your prototype requires.
