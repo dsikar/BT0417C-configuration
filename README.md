@@ -84,7 +84,7 @@ If you see the reply messages, it means your BT0417C factory set baud rate was i
 
 ## Finding and changing the factory set Baud Rate
 
-In **setup()** a baud rate is set for the UNO to communicate with the BT0417C in line
+In setup() a baud rate is set for the UNO to communicate with the BT0417C in line
 
 ``` 
   mySerial.begin(57600);
