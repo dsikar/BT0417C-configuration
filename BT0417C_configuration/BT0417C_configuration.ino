@@ -63,7 +63,7 @@ void loop()
 {
   // Connectivity tests.
   // Tested with Amarino and Bluetooth Viewer (LITE).
-  // Note, the BT0417C must NOT be *paired* while code is uploading.
+  // Note, the BT0417C must NOT be *paired* while starting the Serial Monitor.
   
   // 1. SEND - Assemble message sent via Serial Monitor
   while (Serial.available() > 0) {
