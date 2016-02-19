@@ -34,6 +34,12 @@ Configuring the BT0417C is done in four steps
 
 ## Wiring
 
+The components required in the wiring diagram are:
+
+* Arduino Uno x1
+* BT0417C x1
+* Breadboard jumper wire x4
+
 ![BT0417C Wiring](images/BT0417C-wiring.png)
 
 Wire ground (green) and +5V (red) from your breadboard to the UNO (the actual labels are written at the back of the BT0417C), then TX to Pin 2 and RX to Pin 3.  
