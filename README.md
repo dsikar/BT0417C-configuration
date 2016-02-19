@@ -127,13 +127,15 @@ Suppose you successfully found the baud rate, by setting baud rate to 9600 in th
 
 # Testing
 
-To test communication to and from the BT0417C you will need an Android app such as [Amarino](https://code.google.com/archive/p/amarino/downloads) or [Bluetooth Viewer (LITE)](https://play.google.com/store/apps/details?id=net.bluetoothviewer&hl=en). Once you have the app installed, open a Serial Monitor to send and receive messages.
+To test communication to and from the BT0417C you will need an Android app such as [Amarino](https://code.google.com/archive/p/amarino/downloads) or [Bluetooth Viewer (LITE)](https://play.google.com/store/apps/details?id=net.bluetoothviewer&hl=en). NB You will need to pair the Android device with the BT0417C. Once you have the app installed, open the Arduino Serial Monitor to send and receive messages. By opening the the Serial Monitor you are effectively re-uploading the code. Once the Serial Monitor is up and running, you may then open your Android app and connect to the BT0417C. If you invert this order, opening the Android app first and connecting to the BT0417C, then opening the Arduino Serial Monitor, the connection to the BT0417C will drop. 
+
+Once you have your Serial Monitor open and your Android Bluetooth app running, you may then test sending messages from the Serial Monitor to the Android and vice-versa.
 
 ![Serial Monitor](images/ArduinoSerialMonitor.png)
 
 ![Android](images/AndroidBluetoothViewerLITE.png)
 
-If your test is successful, the BT0417C is configured and may be added to other projects that require Bluetooth.
+If your test is successful, the BT0417C is configured and may be removed from the breadboard and added to other projects that require Bluetooth.
 
 # Datasheets
 
