@@ -1,7 +1,22 @@
 BT0417C Configuration
 ==============
 
-This document describes how to configure the BT0417C module. Once configured, it may be used in other projects.
+This document describes how to configure the BT0417C module. Once configured, it may be used in other projects. 
+
+To copy the directory structure to your local machine, install git, open a terminal in Linux/OSX or a Git Shell in Windows and type:
+
+``` 
+git clone https://github.com/dsikar/BT0417C-configuration.git 
+```
+
+Alternatively, download the zip file.
+
+What's in here: 
+
+* A BT0417C_configuration directory with the Arduino sketch, to be uploaded once the breadboard is wired.
+* A fritzing directory with the Fritzing sketch. This sketch was used to generate the Arduino and breadboard wiring diagram.
+* An images directory.
+* This README.md file.
 
 # What is the BT0417C?
 
@@ -26,14 +41,14 @@ Once the module is powered up via the UNO, a blinking LED on the BT0417C indicat
 
 ## Editing parameters in the sketch
 
-Once you open the sketch, the parameters we need to look out for are Name, PIN and Baud Rate. Then change them to suit your application.
+Once you open the sketch in the BT0417C_configurati directory, the parameters we need to look out for are Name, PIN and Baud Rate. Then change them to suit your application.
 
 ### Name
 
 This is the name your BT0417C will show when paired with another device. In setup(), look for the line
 
 ```   
-mySerial.write("AT+NAMEmed_hum_v0.1"); 
+  mySerial.write("AT+NAMEmed_hum_v0.1"); 
 ```
 
 and edit the name, in this case **med_hum_v0.1**.
